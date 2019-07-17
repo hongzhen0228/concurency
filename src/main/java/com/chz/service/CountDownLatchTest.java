@@ -1,5 +1,7 @@
 package com.chz.service;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -7,6 +9,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by hongzhen.cao on 2019/7/17.
  */
+@Slf4j
 public class CountDownLatchTest {
 
     private final static int threadCount = 200;
@@ -28,13 +31,13 @@ public class CountDownLatchTest {
             });
         }
         countDownLatch.await();
-        System.out.println("finish");
+        log.info("finish");
         executorService.shutdown();
     }
 
     private static void test(int threadNum) throws InterruptedException {
         Thread.sleep(100);
-        System.out.println(threadNum);
+        log.info("{}", threadNum);
         Thread.sleep(100);
     }
 }
