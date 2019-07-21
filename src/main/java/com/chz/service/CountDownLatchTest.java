@@ -1,4 +1,4 @@
-package com.chz.threadsafe.service;
+package com.chz.service;
 
 import lombok.extern.slf4j.Slf4j;
 

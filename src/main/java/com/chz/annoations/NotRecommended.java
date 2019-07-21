@@ -1,4 +1,4 @@
-package com.chz.threadsafe.annoations;
+package com.chz.annoations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,11 +7,11 @@ import java.lang.annotation.Target;
 
 
 /**
- * 推荐写法
+ * 不推荐写法
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface Recommended {
+public @interface NotRecommended {
 
     String value() default "";
 }

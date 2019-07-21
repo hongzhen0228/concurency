@@ -1,4 +1,4 @@
-package com.chz.threadsafe.annoations;
+package com.chz.annoations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

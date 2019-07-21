@@ -1,6 +1,6 @@
 package com.chz.publish.singleton;
 
-import com.chz.threadsafe.annoations.NotThreadSafe;
+import com.chz.annoations.NotThreadSafe;
 
 /**
  * 懒汉模式

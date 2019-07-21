@@ -1,5 +1,5 @@
 package com.chz.threadsafe.atomic;
-import com.chz.threadsafe.annoations.ThreadSafe;
+import com.chz.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;

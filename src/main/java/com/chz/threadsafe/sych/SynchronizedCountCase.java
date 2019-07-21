@@ -1,6 +1,6 @@
 package com.chz.threadsafe.sych;
 
-import com.chz.threadsafe.annoations.NotThreadSafe;
+import com.chz.annoations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
