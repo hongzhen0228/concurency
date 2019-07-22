@@ -1,4 +1,4 @@
-package com.chz.service;
+package com.chz.unsafe;
 
 import com.chz.annoations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
@@ -8,16 +8,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
+/**
+ * Created by hongzhen.cao on 2019/7/22.
+ */
 @Slf4j
 @NotThreadSafe
-public class ConcurcencyTest {
+public class StringBuilderCase {
 
     public static int clientTotal = 5000;
 
     public static int threadTotal = 200;
 
 
-    public static int count = 0;
+    public static StringBuilder stringBuilder = new StringBuilder();
 
     public static void main(String[] args) throws Exception{
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -37,11 +40,11 @@ public class ConcurcencyTest {
             });
         }
         countDownLatch.await();
-        log.info("count{}",count);
-
-      }
+        executorService.shutdown();
+        log.info("stringBuilder{}",stringBuilder.length());
+    }
 
     public static void add() {
-        count ++;
+        stringBuilder.append("1");
     }
 }
