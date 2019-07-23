@@ -3,6 +3,10 @@ package com.chz.service;
 import com.chz.annoations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,7 +24,20 @@ public class ConcurcencyTest {
     public static int count = 0;
 
     public static void main(String[] args) throws Exception{
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        while (true) {
+            List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < clientTotal; i++) {
+                list.add(i);
+            }
+            log.warn("list{}",list.size());
+            List<Integer> list1 = Collections.synchronizedList(new ArrayList<>());
+            list.parallelStream().forEach(integer -> {
+                list1.add(integer);
+            });
+            log.warn("list1:{}   ",list1.size());
+        }
+
+        /*ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
 
@@ -37,7 +54,7 @@ public class ConcurcencyTest {
             });
         }
         countDownLatch.await();
-        log.info("count{}",count);
+        log.info("count{}",count);*/
 
       }
 
