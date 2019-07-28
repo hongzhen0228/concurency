@@ -1,4 +1,4 @@
-package com.chz.aqs;
+package com.chz.jqs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
